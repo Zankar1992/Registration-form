@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+// import './style.css';
 
+// function use karine form create karel che 
 const App = () => {
   const [userRegistration, setUserRegistration] = useState({
     username: "",
@@ -15,7 +17,9 @@ const App = () => {
     const value = e.target.value;
     console.log(value, name);
 
-    setUserRegistration({ ...userRegistration, [name]: value })
+    setUserRegistration({ ...userRegistration, [name]: value })   
+     //old element nd current elem array ma data store thase 
+    //array ma nahi hoy to individual data console ma show thase field ma write nai thay
   }
 
   const handleSubmit = (e) => {
@@ -24,12 +28,15 @@ const App = () => {
     const newRecords = { ...userRegistration, id: new Date().getTime().toString() }
     console.log(records);
     setRecords([...records, newRecords]);
-    console.log(records)
+    // console.log(records);
+    // store data jova mate setuser nd console.log commit karine check karvu 
+    setUserRegistration({ username: "", email: "", phone: "", password: "" })   // registration kariye aetle field empty thai jase 
   }
 
   return (
     <>
       <form action="" onSubmit={handleSubmit}>
+      <h1>Registration Form</h1>
         <div>
           <label htmlFor="username">Fullname</label>
           <input type="text" autoComplete="off"
@@ -64,14 +71,15 @@ const App = () => {
       <div>
         {
           records.map((curElem) => {
-            const {id,username,email,phone,password} = curElem;
+            const { id: username, email, phone, password } = curElem;
             return (
-              <div className="showDataStyle" key={curElem.id}>
+              // field karel data niche show karse 
+              <div className="showDataStyle" key={curElem.id}> 
                 <p>{username}</p>
                 <p>{email}</p>
                 <p>{phone}</p>
                 <p>{password}</p>
-              </div>  
+              </div>
             )
           })
         }
