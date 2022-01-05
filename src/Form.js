@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './Form.css';
 
 class Form extends Component {
-
-  constructor(props) {    // props ni value change kari sako 
+  constructor(props) {                   // props ni value change kari sako 
     super(props);   //constructor use kariye aetle super method ne call karse
     this.state = {
       fullname: "",
@@ -14,10 +13,9 @@ class Form extends Component {
   }
   // multiple mate ek j fuction ne call karse one line code che 
   handlechangeall = (e) => {
-    this.setState( { [e.target.name] :e.target.value } )    //single line code for multiple function call
+    this.setState({ [e.target.name]: e.target.value })    //single line code for multiple function call
     console.log(e.target);
   }
-
   handlesubmit = (e) => {
     // alert(`my name is ${this.state.fullname},
     //       my email id is ${this.state.email},
@@ -52,7 +50,6 @@ class Form extends Component {
           </form>
         </div>
       </>
-
     )
   }
 }
